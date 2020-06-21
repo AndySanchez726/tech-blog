@@ -30,9 +30,6 @@ function resetTimer() {
         setInterval(startIdleTimer, 1000); 
 } 
 
-// function idleLogout() {
-//     setInterval(logout, 20)
-// }
 
 // Define the events that 
 // would reset the timer 

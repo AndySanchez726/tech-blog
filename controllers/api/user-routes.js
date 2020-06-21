@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment, User, Post, Vote } = require('../../models');
+const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET /api/users
@@ -36,12 +36,6 @@ router.get('/:id', (req, res) => {
                attributes: ['title']
             }
          }
-      //   {
-      //     model: Post,
-      //     attributes: ['title'],
-      //     through: Vote,
-      //     as: 'voted_posts'
-      //   }
       ]
     })
       .then(dbUserData => {
