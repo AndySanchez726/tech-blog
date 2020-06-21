@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
       include: [
          {
             model: Post,
-            attributes: ['id', 'title', 'post_url', 'created_at']
+            attributes: ['id', 'title', 'post_content', 'created_at']
          },
          // include the Comment model here:
          {
@@ -59,18 +59,16 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
-   // expects {username: 'Feuerbacher', email: 'feuerbacherb@gmail.com', password: 'password1234'}
+   // expects {username: 'andysanchez', password: '12345'}
    User.create({
       username: req.body.username,
-      email: req.body.email,
       password: req.body.password
    })      
       .then(dbUserData => {
          req.session.save(() => {
             req.session.user_id = dbUserData.id;
-            res.session.username = dbUserData.username;
-            req.session.loggedIn = dbUserData.true;
-
+            // res.session.username = dbUserData.username;
+            req.session.loggedIn = true;
             res.json(dbUserData);
          });
       })
@@ -83,11 +81,11 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email
+      username: req.body.username
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
+      res.status(400).json({ message: 'No user with that username!' });
       return;
     }
 
