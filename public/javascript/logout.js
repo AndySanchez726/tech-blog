@@ -50,14 +50,6 @@ function startIdleTimer() {
     if (currSeconds === 600) {
       logout();
     }
-
-    /* Set the timer text 
-        to the new value */ 
-    document.getElementById('timer') 
-        .textContent = currSeconds; 
-
-    /* Display the timer text */ 
-    document.getElementById('timer') 
 } 
 
 
