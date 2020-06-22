@@ -6,38 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Tech Blog</a>
-      </h1>
-      <nav>
+      <nav class="m-3 ">
         <a href="/">Home</a>
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <a href="/dashboard">Dashboard</a>
+        <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
-        <a href="/login">dashboard</a>
-        <a href="/login">login</a>
+        <a href="/login">Dashboard</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>    
     </header>
     <main>
-      <h3>Timer</h3>
-      <p id="timer"></p>
+      <h1>Tech Blog</h1>
       {{{ body }}}
     </main>
     <footer>
-      Thanks for visiting!
+      Tech Blog
     </footer>
   </div>
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
-  {{!-- <script src="/javascript/timer.js"></script> --}}
   {{/if}}  
 </body>
 
